@@ -33,16 +33,15 @@ window.renderStatistics = function (ctx, names, times) {
     var time = times[i];
     var height = step * time;
     ctx.fillStyle = '#000';
-    ctx.fillText(time.toFixed(0), histogramaX + columnIndent * i, 90 + histogramaHeight - height );
+    ctx.fillText(time.toFixed(0), histogramaX + columnIndent * i, 90 + histogramaHeight - height);
     ctx.fillStyle = '#000';
     ctx.fillText(name, histogramaX + columnIndent * i, 100 + histogramaHeight + 20);
     if (name === 'Вы') {
-      ctx.fillStyle = '#FF0000';
-      ctx.fillRect(histogramaX + columnIndent * i, 100 + histogramaHeight - height, 40, height);
+      ctx.fillStyle = '#FF0000';;
       } else {
       var color = Math.floor(Math.random() * 244) + 2;
       ctx.fillStyle = 'rgba(0,0,' + color + ', '+ Math.random() +')';
-      ctx.fillRect(histogramaX + columnIndent * i, 100 + histogramaHeight - height, 40, height);
       }
+      ctx.fillRect(histogramaX + columnIndent * i, 100 + histogramaHeight - height, 40, height);
     }
 };
