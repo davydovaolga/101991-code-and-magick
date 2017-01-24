@@ -16,16 +16,16 @@ window.renderStatistics = function (ctx, names, times) {
 
   var max = 1;
 
-  for (var i = 0 ; i < times.length; i++ ) {
+  for (var i = 0 ; i < times.length; i++) {
     var time = times[i];
     if (time > max) {
-    max = time;
+      max = time;
     }
   }
 
-  var histogrammaHeight = 150;
-  var histogrammaX = 140;
-  var step = histogrammaHeight / max;
+  var histogramaHeight = 150;
+  var histogramaX = 140;
+  var step = histogramaHeight / max;
   var columnIndent = 90;
 
   for (var i = 0; i < times.length; i++) {
@@ -33,18 +33,16 @@ window.renderStatistics = function (ctx, names, times) {
     var time = times[i];
     var height = step * time;
     ctx.fillStyle = '#000';
-    ctx.fillText(time.toFixed(0), histogrammaX + columnIndent * i, 90 + histogrammaHeight - height );
-    if ( name === 'Вы') {
+    ctx.fillText(time.toFixed(0), histogramaX + columnIndent * i, 90 + histogramaHeight - height );
+    ctx.fillStyle = '#000';
+    ctx.fillText(name, histogramaX + columnIndent * i, 100 + histogramaHeight + 20);
+    if (name === 'Вы') {
       ctx.fillStyle = '#FF0000';
-      ctx.fillRect(histogrammaX + columnIndent * i, 100 + histogrammaHeight - height, 40, height);
-      ctx.fillStyle = '#000';
-      ctx.fillText(name, histogrammaX + columnIndent * i, 100 + histogrammaHeight + 20);
+      ctx.fillRect(histogramaX + columnIndent * i, 100 + histogramaHeight - height, 40, height);
       } else {
-        var color = Math.floor(Math.random() * 244) + 2;
-        ctx.fillStyle = 'rgba(0,0,' + color + ', '+ Math.random() +')';
-        ctx.fillRect(histogrammaX + columnIndent * i, 100 + histogrammaHeight - height, 40, height);
-        ctx.fillStyle = '#000';
-        ctx.fillText(name, histogrammaX + columnIndent * i, 100 + histogrammaHeight + 20);
-        }
+      var color = Math.floor(Math.random() * 244) + 2;
+      ctx.fillStyle = 'rgba(0,0,' + color + ', '+ Math.random() +')';
+      ctx.fillRect(histogramaX + columnIndent * i, 100 + histogramaHeight - height, 40, height);
+      }
     }
 };
